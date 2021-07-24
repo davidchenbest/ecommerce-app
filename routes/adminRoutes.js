@@ -12,5 +12,10 @@ router.delete('/deleteUser/:id', async (req, res) => {
     res.json(!!result.deletedCount)
 })
 
+router.put('/editUser/:id', async (req, res) => {
+    const { role } = req.body
+    const user = await User.updateOne({ _id: req.params.id }, { role })
+    res.json(!!user.nModified)
+})
 
 module.exports = router;
