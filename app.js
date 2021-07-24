@@ -2,12 +2,13 @@ const express = require("express");
 const app = express();
 const { PORT, MONGO_URI } = require("./config");
 const mongoose = require("mongoose");
-const { User } = require("./models/User");
+const cookieParser = require('cookie-parser');
 
 mongoose
   .connect(MONGO_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
+    useCreateIndex: true
   })
   .then(() => {
     console.log("Connected to MongoDB");
@@ -18,9 +19,12 @@ mongoose
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser());
 
-const auth = require("./routes/auth");
-app.use(auth);
+const authRoutes = require("./routes/authRoutes");
+const userRoutes = require("./routes/userRoutes");
+app.use(authRoutes);
+app.use(userRoutes);
 
 app.get("/", (req, res) => {
   res.send("home");
