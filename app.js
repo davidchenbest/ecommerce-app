@@ -1,21 +1,8 @@
 const express = require("express");
 const app = express();
-const { PORT, MONGO_URI } = require("./config");
-const mongoose = require("mongoose");
+const { PORT } = require("./config");
 const cookieParser = require('cookie-parser');
-
-mongoose
-  .connect(MONGO_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true
-  })
-  .then(() => {
-    console.log("Connected to MongoDB");
-  })
-  .catch((error) => {
-    console.log(error);
-  });
+require('./utils/dbConnect')
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
