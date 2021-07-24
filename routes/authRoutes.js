@@ -7,8 +7,8 @@ const { createJWT } = require("../utils/createJWT");
 
 router.post('/register', async (req, res) => {
   try {
-    const { username, password } = req.body
-    const user = new User({ username, password })
+    const { username, password, email, address } = req.body
+    const user = new User({ username, password, email, address })
     await user.save()
     res.send(user)
   } catch (err) {
@@ -45,7 +45,7 @@ router.post('/login', async (req, res) => {
 function handleErrors(err) {
   let errors = {}
   if (err.code === 11000) {
-    errors.username = 'that username is already registered';
+    errors.username = `${Object.keys(err.keyValue)} is already registered`;
     return errors;
   }
   if (err.message === 'incorrect username') {

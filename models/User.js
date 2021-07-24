@@ -9,10 +9,26 @@ const UserSchema = new Schema({
     unique: true,
     lowercase: true,
   },
+  email: {
+    type: String,
+    required: [true, 'Email Require'],
+    unique: true,
+    lowercase: true,
+  },
   password: {
     type: String,
     required: [true, "Please enter a password"],
     minlength: [6, "Minimum password length is 6 characters"],
+  },
+  address: {
+    streetAddress: String,
+    city: String,
+    state: String,
+    zip: String,
+  },
+  date: {
+    type: Date,
+    default: Date.now
   },
   role: { type: String },
 });
