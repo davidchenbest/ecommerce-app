@@ -1,0 +1,18 @@
+<form [formGroup]="loginForm" (ngSubmit)="loginForm.valid && onSubmit()">
+    <div class="mb-3">
+        <input type="text" name="username" placeholder="username" formControlName='username'
+            [ngClass]="{'form--errors':fc.username.touched && fc.username.errors}" class="form-control">
+    </div>
+
+    <div class="mb-3">
+
+        <input type="password" name="password" placeholder="password" formControlName='password'
+            [ngClass]="{'form--errors':fc.password.touched && fc.password.errors}" class="form-control">
+
+    </div>
+
+    <p *ngIf='invalid'>invalid</p>
+
+
+    <input type="submit" [disabled]="loginForm.invalid" class="form__submit" />
+</form>

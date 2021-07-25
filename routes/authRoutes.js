@@ -35,7 +35,7 @@ router.post('/login', async (req, res) => {
     const { id } = await User.login(username, password)
     const accessToken = createJWT(id)
     res.cookie('jwtToken', accessToken, { httpOnly: true, maxAge: JWT_MAX_TIME * 1000 })
-    res.json({ accessToken })
+    res.json({ accessToken, expiresAt: JWT_MAX_TIME, timeUnit: 'minute' })
   } catch (err) {
     const error = handleErrors(err)
     res.json({ error })
