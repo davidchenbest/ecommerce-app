@@ -15,3 +15,5 @@
      - /users
    - delete:
      - /deleteUser/:id
+   - put:
+     - /editUser/:id

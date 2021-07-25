@@ -13,8 +13,8 @@ router.delete('/deleteUser/:id', async (req, res) => {
 })
 
 router.put('/editUser/:id', async (req, res) => {
-    const { role } = req.body
-    const user = await User.updateOne({ _id: req.params.id }, { role })
+    const { role, address } = req.body
+    const user = await User.updateOne({ _id: req.params.id }, { role, address })
     res.json(!!user.nModified)
 })
 
