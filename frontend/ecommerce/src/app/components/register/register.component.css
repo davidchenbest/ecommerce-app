@@ -1,0 +1,16 @@
+form {
+  max-width: 500px;
+  margin: auto;
+}
+
+.form--errors {
+  border: 1px solid red;
+}
+
+.form__errors {
+  color: red;
+}
+
+.form__submit {
+  float: right;
+}

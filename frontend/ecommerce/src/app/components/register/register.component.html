@@ -1,0 +1,42 @@
+<h1>Register</h1>
+<form [formGroup]='newUserForm' (ngSubmit)='newUserForm.valid && onSubmit()'>
+
+    <div class="mb-3">
+        <input type="text" name="username" placeholder="username" formControlName='username'
+            [ngClass]="{'form--errors':fc.username.touched && fc.username.errors}" class="form-control">
+        <div *ngIf='fc.username.touched' class="form__errors">
+            <span *ngIf='fc.username.errors?.required'>required</span>
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <input type="text" name="email" placeholder="email" formControlName='email'
+            [ngClass]="{'form--errors':fc.email.touched && fc.email.errors}" class="form-control">
+        <div *ngIf='fc.email.touched' class="form__errors">
+            <span *ngIf='fc.email.errors?.required'>required</span>
+            <span *ngIf='fc.email.errors?.email'>invalid email</span>
+        </div>
+    </div>
+
+    <div class="mb-3">
+
+        <input type="password" name="password" placeholder="password" formControlName='password'
+            [ngClass]="{'form--errors':fc.password.touched && fc.password.errors}" class="form-control">
+        <div *ngIf='fc.password.touched' class="form__errors">
+            <span *ngIf='fc.password.errors?.required'>required</span>
+            <span *ngIf='fc.password.errors?.minlength'>min length 6</span>
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <input type="password" name="confirmPassword" placeholder="confirmPassword" formControlName='confirmPassword'
+            [ngClass]="{'form--errors':fc.confirmPassword.touched && fc.confirmPassword.errors}" class="form-control">
+        <div *ngIf='fc.confirmPassword.touched' class="form__errors">
+            <span *ngIf='fc.confirmPassword.errors?.required'>required</span>
+            <span *ngIf='fc.confirmPassword.errors?.minlength'>min length 6</span>
+            <span *ngIf='fc.confirmPassword.errors?.PasswordMatch'>password do not match</span>
+        </div>
+    </div>
+
+    <input type="submit" [disabled]='newUserForm.invalid' class="form__submit">
+</form>
