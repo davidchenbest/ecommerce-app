@@ -1,0 +1,12 @@
+<div *ngIf='user' class="users__user">
+    <input class="user__name" [(ngModel)]='user.username' />
+    <input [(ngModel)]='user.email' />
+    <div *ngIf='user?.address'>
+        <h3>Address</h3>
+        <input [(ngModel)]='user.address.streetAddress' name="address" />
+        <input [(ngModel)]='user.address.city' name="city" />
+        <input [(ngModel)]='user.address.state' name="state" />
+        <input [(ngModel)]='user.address.zip' name="zip" />
+    </div>
+    <button (click)='save()'>Save</button>
+</div>

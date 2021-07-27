@@ -3,13 +3,13 @@
     <p>{{user.email}}</p>
     <div *ngIf='user.address'>
         <h3>Address</h3>
-        <p>{{user.address.streerAddress}}</p>
+        <p>{{user.address.streetAddress}}</p>
         <p>{{user.address.city}}</p>
         <p>{{user.address.state}}</p>
         <p>{{user.address.zip}}</p>
     </div>
     <p>Date joined: {{user.date|date}}</p>
-
+    <button (click)='edit(user._id)'>Edit</button>
 
 
 </div>

@@ -19,4 +19,14 @@ export class UserService {
       withCredentials: true,
     });
   }
+
+  editProfile(profile: any): Observable<any> {
+    return this.httpClient.post<any>(
+      'http://localhost:3000/editProfile',
+      profile,
+      {
+        withCredentials: true,
+      }
+    );
+  }
 }

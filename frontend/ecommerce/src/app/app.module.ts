@@ -9,9 +9,11 @@ import { LoginComponent } from './components/login/login.component';
 import { UsersComponent } from './components/users/users.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
+import { LogoutComponent } from './components/logout/logout.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, UsersComponent, RegisterComponent, ProfileComponent],
+  declarations: [AppComponent, LoginComponent, UsersComponent, RegisterComponent, ProfileComponent, EditProfileComponent, LogoutComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
