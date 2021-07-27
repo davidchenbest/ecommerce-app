@@ -17,4 +17,11 @@ export class UsersComponent implements OnInit {
       this.users = res;
     });
   }
+
+  delete(id: string, index: number) {
+    this.adminService.deleteUser(id).subscribe((res) => {
+      if (res) this.users.splice(index, 1);
+      else alert(res);
+    });
+  }
 }

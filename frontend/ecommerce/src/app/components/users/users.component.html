@@ -11,7 +11,7 @@
             <p>{{user.address.zip}}</p>
         </div>
         <p>Date joined: {{user.date|date}}</p>
-
+        <button (click)='delete(user._id,index)'>Delete</button>
 
 
     </div>

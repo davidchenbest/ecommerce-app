@@ -13,4 +13,10 @@ export class UserService {
       withCredentials: true,
     });
   }
+
+  profile(): Observable<any> {
+    return this.httpClient.get<any>('http://localhost:3000/profile', {
+      withCredentials: true,
+    });
+  }
 }

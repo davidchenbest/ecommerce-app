@@ -1,0 +1,15 @@
+<div *ngIf='user' class="users__user">
+    <p class="user__name">{{user.username}}</p>
+    <p>{{user.email}}</p>
+    <div *ngIf='user.address'>
+        <h3>Address</h3>
+        <p>{{user.address.streerAddress}}</p>
+        <p>{{user.address.city}}</p>
+        <p>{{user.address.state}}</p>
+        <p>{{user.address.zip}}</p>
+    </div>
+    <p>Date joined: {{user.date|date}}</p>
+
+
+
+</div>

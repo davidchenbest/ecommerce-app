@@ -14,4 +14,12 @@ export class AdminService {
       withCredentials: true,
     });
   }
+  deleteUser(id: string): Observable<any> {
+    return this.httpClient.delete<any>(
+      `http://localhost:3000/deleteUser/${id}`,
+      {
+        withCredentials: true,
+      }
+    );
+  }
 }
