@@ -21,8 +21,8 @@ export class AuthService {
 
   setCookie(res: LoginResponse) {
     let { accessToken, expiresAt, timeUnit } = res;
-    if (timeUnit !== 'minute') throw 'invalid timeUnit in response';
-    expiresAt = moment().add(expiresAt, 'minute').utc().toString();
+    if (timeUnit !== 'second') throw 'invalid timeUnit in response';
+    expiresAt = moment().add(expiresAt, 'second').utc().toString();
     document.cookie = `accessToken=${accessToken}; expires=${expiresAt};`;
   }
 }

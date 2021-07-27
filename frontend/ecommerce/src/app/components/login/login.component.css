@@ -1,0 +1,12 @@
+.form--errors {
+  border: 1px solid red;
+}
+
+form {
+  max-width: 500px;
+  margin: auto;
+}
+
+.form__submit {
+  float: right;
+}

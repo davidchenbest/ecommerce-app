@@ -10,8 +10,8 @@
             [ngClass]="{'form--errors':fc.password.touched && fc.password.errors}" class="form-control">
 
     </div>
+    <div *ngIf='invalid' class="form--errors">invalid</div>
 
-    <p *ngIf='invalid'>invalid</p>
 
 
     <input type="submit" [disabled]="loginForm.invalid" class="form__submit" />
