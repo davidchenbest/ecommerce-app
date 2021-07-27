@@ -1,0 +1,22 @@
+.users {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-column-gap: 1rem;
+  grid-row-gap: 1rem;
+  border-radius: 5px;
+}
+
+.users__user {
+  background-color: lightgray;
+  padding: 0.25rem 0.5rem;
+  border-radius: 5px;
+}
+
+.user__name {
+  font-weight: bold;
+  font-size: larger;
+}
+.users__qtyCon {
+  display: flex;
+  justify-content: space-between;
+}

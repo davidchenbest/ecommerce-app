@@ -1,0 +1,21 @@
+<div *ngIf='users; else noUsers' class="users">
+    <div *ngFor='let user of users; let index=index' class="users__user">
+        <p class="user__name">{{user.username}}</p>
+        <p>{{user.email}}</p>
+        <div *ngIf='user.address'>
+            <p>{{user.address.streerAddress}}</p>
+            <p>{{user.address.city}}</p>
+            <p>{{user.address.state}}</p>
+            <p>{{user.address.zip}}</p>
+        </div>
+        <p>Date joined: {{user.date|date}}</p>
+
+
+
+    </div>
+</div>
+
+
+<ng-template #noUsers>
+    <h1>no results</h1>
+</ng-template>

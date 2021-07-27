@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Login } from '../interfaces/Login';
 import { LoginResponse } from '../interfaces/LoginResponse';
-import { User } from '../interfaces/User';
 import * as moment from 'moment';
 
 @Injectable({
