@@ -3,7 +3,7 @@ const { JWT_SECRET } = require('../config');
 const { User } = require('../models/User');
 
 const authMiddleWare = (roles) => (req, res, next) => {
-    let token = req.cookies.jwtToken
+    let token = req.cookies.accessToken
     if (token) {
         jwt.verify(token, JWT_SECRET, async (err, decodedToken) => {
             if (err) {
