@@ -7,14 +7,29 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { RegisterAdminComponent } from './components/register-admin/register-admin.component';
 import { RegisterComponent } from './components/register/register.component';
 import { UsersComponent } from './components/users/users.component';
+import { AuthService } from './services/auth.service';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
-  { path: 'users', component: UsersComponent },
+  {
+    path: 'users',
+    component: UsersComponent,
+    canActivate: [AuthService],
+    data: { role: 'admin' },
+  },
   { path: 'register', component: RegisterComponent },
-  { path: 'registerAdmin', component: RegisterAdminComponent },
-  { path: 'profile', component: ProfileComponent },
-  { path: 'editProfile', component: EditProfileComponent },
+  {
+    path: 'registerAdmin',
+    component: RegisterAdminComponent,
+    canActivate: [AuthService],
+    data: { role: 'admin' },
+  },
+  { path: 'profile', component: ProfileComponent, canActivate: [AuthService] },
+  {
+    path: 'editProfile',
+    component: EditProfileComponent,
+    canActivate: [AuthService],
+  },
   { path: 'logout', component: LogoutComponent },
 ];
 

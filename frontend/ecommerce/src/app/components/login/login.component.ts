@@ -24,9 +24,6 @@ export class LoginComponent implements OnInit {
 
   onSubmit(): any {
     const { username, password } = this.loginForm.value;
-    this.authService.login(this.loginForm.value).subscribe((res) => {
-      if (res.error) this.invalid = true;
-      else this.authService.setCookie(res);
-    });
+    this.authService.login(this.loginForm.value);
   }
 }
