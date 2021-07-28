@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { UserService } from 'src/app/services/user.service';
+import { AdminService } from 'src/app/services/admin.service';
 import { PasswordMatch } from 'src/app/validators/passwordMatch';
 
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css'],
+  selector: 'app-register-admin',
+  templateUrl: '../register/register.component.html',
+  styleUrls: ['./register-admin.component.css'],
 })
-export class RegisterComponent implements OnInit {
-  name: string = 'Register';
+export class RegisterAdminComponent implements OnInit {
+  name: string = 'Register Admin';
   newUserForm: FormGroup = new FormGroup(
     {
       username: new FormControl('', Validators.required),
@@ -23,11 +23,12 @@ export class RegisterComponent implements OnInit {
         Validators.required,
         Validators.minLength(6),
       ]),
+      role: new FormControl('admin', Validators.required),
     },
     { validators: PasswordMatch.MatchPassword }
   );
 
-  constructor(private userService: UserService, private _router: Router) {}
+  constructor(private adminService: AdminService, private _router: Router) {}
 
   ngOnInit(): void {}
 
@@ -36,7 +37,7 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit() {
-    this.userService.register(this.newUserForm.value).subscribe((res) => {
+    this.adminService.registerAdmin(this.newUserForm.value).subscribe((res) => {
       if (res.error) alert(JSON.stringify(res.error));
       else if (res._id) this._router.navigate(['/login']);
       else alert(JSON.stringify(res));

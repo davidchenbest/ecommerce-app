@@ -14,6 +14,16 @@ export class AdminService {
       withCredentials: true,
     });
   }
+
+  registerAdmin(user: any): Observable<any> {
+    return this.httpClient.post<any>(
+      'http://localhost:3000/registerAdmin',
+      user,
+      {
+        withCredentials: true,
+      }
+    );
+  }
   deleteUser(id: string): Observable<any> {
     return this.httpClient.delete<any>(
       `http://localhost:3000/deleteUser/${id}`,

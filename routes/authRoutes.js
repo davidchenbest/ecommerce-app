@@ -17,18 +17,6 @@ router.post('/register', async (req, res) => {
   }
 })
 
-router.post("/registerAdmin", authMiddleWare(), async (req, res) => {
-  try {
-    const { username, password } = req.body;
-    const user = new User({ username, password, role: "admin" });
-    await user.save();
-    res.send(user);
-  } catch (err) {
-    const error = handleErrors(err);
-    res.json({ error });
-  }
-});
-
 router.post('/login', async (req, res) => {
   try {
     const { username, password } = req.body

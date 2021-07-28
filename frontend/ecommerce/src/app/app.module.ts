@@ -11,9 +11,10 @@ import { RegisterComponent } from './components/register/register.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
 import { LogoutComponent } from './components/logout/logout.component';
+import { RegisterAdminComponent } from './components/register-admin/register-admin.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, UsersComponent, RegisterComponent, ProfileComponent, EditProfileComponent, LogoutComponent],
+  declarations: [AppComponent, LoginComponent, UsersComponent, RegisterComponent, ProfileComponent, EditProfileComponent, LogoutComponent, RegisterAdminComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

@@ -7,6 +7,19 @@ router.get('/users', async (req, res) => {
     res.json(users)
 })
 
+router.post("/registerAdmin", async (req, res) => {
+    try {
+        console.log(req.body, 19);
+        const { username, password, email } = req.body;
+        const user = new User({ username, password, email, role: "admin" });
+        await user.save();
+        res.send(user);
+    } catch (err) {
+        const error = handleErrors(err);
+        res.json({ error });
+    }
+});
+
 router.delete('/deleteUser/:id', async (req, res) => {
     const result = await User.deleteOne({ _id: req.params.id })
     res.json(!!result.deletedCount)
