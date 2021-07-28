@@ -8,18 +8,11 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./edit-profile.component.css'],
 })
 export class EditProfileComponent implements OnInit {
-  id!: any;
   user!: any;
-  constructor(
-    private route: ActivatedRoute,
-    private router: Router,
-    private userService: UserService
-  ) {}
+  constructor(private router: Router, private userService: UserService) {}
 
   ngOnInit(): void {
     try {
-      this.id = this.route.snapshot.paramMap.get('id');
-      console.log(this.id);
       this.userService.profile().subscribe((res) => {
         if (res) {
           this.user = res;

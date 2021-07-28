@@ -14,7 +14,7 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'registerAdmin', component: RegisterAdminComponent },
   { path: 'profile', component: ProfileComponent },
-  { path: 'editProfile/:id', component: EditProfileComponent },
+  { path: 'editProfile', component: EditProfileComponent },
   { path: 'logout', component: LogoutComponent },
 ];
 
