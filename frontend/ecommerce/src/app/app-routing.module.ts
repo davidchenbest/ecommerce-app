@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
+import { EditUserComponent } from './components/edit-user/edit-user.component';
 import { LoginComponent } from './components/login/login.component';
 import { LogoutComponent } from './components/logout/logout.component';
 import { ProfileComponent } from './components/profile/profile.component';
@@ -29,6 +30,12 @@ const routes: Routes = [
     path: 'editProfile',
     component: EditProfileComponent,
     canActivate: [AuthService],
+  },
+  {
+    path: 'editUser/:id',
+    component: EditUserComponent,
+    canActivate: [AuthService],
+    data: { role: 'admin' },
   },
   { path: 'logout', component: LogoutComponent },
 ];

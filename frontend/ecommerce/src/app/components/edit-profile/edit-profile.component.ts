@@ -27,8 +27,8 @@ export class EditProfileComponent implements OnInit {
 
   save() {
     this.userService.editProfile(this.user).subscribe((res) => {
-      if (res) this.router.navigate(['/profile']);
-      else alert(res);
+      if (res.error) alert(JSON.stringify(res.error));
+      else this.router.navigate(['/profile']);
     });
   }
 

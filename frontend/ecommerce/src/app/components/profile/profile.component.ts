@@ -17,8 +17,4 @@ export class ProfileComponent implements OnInit {
       this.user = res;
     });
   }
-
-  edit(id: string) {
-    this.router.navigate(['/editProfile', id]);
-  }
 }

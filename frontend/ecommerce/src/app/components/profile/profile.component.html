@@ -9,7 +9,7 @@
         <p>{{user.address.zip}}</p>
     </div>
     <p>Date joined: {{user.date|date}}</p>
-    <button (click)='edit(user._id)'>Edit</button>
+    <a [routerLink]="['/editProfile']">Edit</a>
 
 
 </div>

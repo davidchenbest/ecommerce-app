@@ -15,9 +15,25 @@ export class AdminService {
     });
   }
 
+  getUser(id: string): Observable<User> {
+    return this.httpClient.get<User>(`http://localhost:3000/user/${id}`, {
+      withCredentials: true,
+    });
+  }
+
   registerAdmin(user: any): Observable<any> {
     return this.httpClient.post<any>(
       'http://localhost:3000/registerAdmin',
+      user,
+      {
+        withCredentials: true,
+      }
+    );
+  }
+
+  editUser(user: any): Observable<any> {
+    return this.httpClient.put<any>(
+      `http://localhost:3000/editUser/${user._id}`,
       user,
       {
         withCredentials: true,

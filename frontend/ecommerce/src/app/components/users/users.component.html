@@ -1,17 +1,19 @@
 <h1>Users</h1>
 <div *ngIf='users; else noUsers' class="users">
     <div *ngFor='let user of users; let index=index' class="users__user">
-        <p class="user__name">{{user.username}}</p>
+        <p class="user__name">{{user.username}} </p>
+        <span>{{user.role}}</span>
         <p>{{user.email}}</p>
         <div *ngIf='user.address'>
             <h3>Address</h3>
-            <p>{{user.address.streerAddress}}</p>
+            <p>{{user.address.streetAddress}}</p>
             <p>{{user.address.city}}</p>
             <p>{{user.address.state}}</p>
             <p>{{user.address.zip}}</p>
         </div>
         <p>Date joined: {{user.date|date}}</p>
         <button (click)='delete(user._id,index)'>Delete</button>
+        <button (click)='edit(user._id)'>Edit</button>
 
 
     </div>

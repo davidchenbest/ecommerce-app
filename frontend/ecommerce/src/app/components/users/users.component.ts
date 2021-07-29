@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from 'src/app/interfaces/User';
+import { Router } from '@angular/router';
 import { AdminService } from 'src/app/services/admin.service';
 
 @Component({
@@ -9,11 +9,10 @@ import { AdminService } from 'src/app/services/admin.service';
 })
 export class UsersComponent implements OnInit {
   users: any;
-  constructor(private adminService: AdminService) {}
+  constructor(private adminService: AdminService, private router: Router) {}
 
   ngOnInit(): void {
     this.adminService.getUsers().subscribe((res) => {
-      console.log(res);
       this.users = res;
     });
   }
@@ -23,5 +22,9 @@ export class UsersComponent implements OnInit {
       if (res) this.users.splice(index, 1);
       else alert(res);
     });
+  }
+
+  edit(id: string) {
+    this.router.navigate(['/editUser', id]);
   }
 }
